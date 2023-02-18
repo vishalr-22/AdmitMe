@@ -1,5 +1,9 @@
 package com.example.admitmebackend.repositories;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public class AdmitFormRepository {
+import com.example.admitmebackend.models.admitForm;
+
+
+public interface AdmitFormRepository extends MongoRepository<admitForm, String>{
     
 }
