@@ -36,17 +36,19 @@ export default function FetchFormData() {
             <th>Class</th>
             <th>Division</th>
             <th>Gender</th>
+            <th>Aid</th>
           </tr>
         </thead>
         <tbody>
       {students?.map((student) => {
         return (
-          <tr key={student.id}>
+          <tr key={student.id}>               
                 <td>{student.name}</td>
                 <td>{student.dob}</td>
                 <td>{student.standard}</td>
                 <td>{student.division}</td>
                 <td>{student.gender}</td>
+                <td>{student.aid}</td> 
               </tr>
         );
       })}

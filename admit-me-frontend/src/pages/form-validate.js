@@ -18,8 +18,15 @@ export default function FormValidation() {
       body: JSON.stringify(data)
   };
   fetch('http://192.168.0.79:8093/addRecords', requestOptions)
-      // .then(response => response.json())
-      .then(console.log("data stored"));
+      .then((response) => {
+        console.log(response)
+        if (response == true){
+          alert("Data added successfully")
+        }
+        else{
+          alert("Data already existing")
+        }
+      })
   };
 
   return (

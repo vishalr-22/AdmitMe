@@ -8,6 +8,9 @@ public class admitForm {
     private String id;
 
     @Field
+    private String aid;
+
+    @Field
     private String name;
 
     @Field
@@ -39,6 +42,14 @@ public class admitForm {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getAid() {
+        return this.aid;
+    }
+
+    public void setAid(String aid) {
+        this.aid = aid;
     }
 
     public String getName() {
