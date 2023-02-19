@@ -12,6 +12,14 @@ export default function FormValidation() {
 
   const onSubmit = (data) => {
     console.log(data);
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  };
+  fetch('http://192.168.0.79:8093/addRecords', requestOptions)
+      // .then(response => response.json())
+      .then(console.log("data stored"));
   };
 
   return (
@@ -39,22 +47,22 @@ export default function FormValidation() {
         {errors.dob && <p>Please check the DOB</p>}
         <Form.Field>
           <select
-            {...register("class", {
+            {...register("standard", {
               required: true,
             })}
           >
-            <option value="1">Class I</option>
-            <option value="2">Class II</option>
-            <option value="3">Class III</option>
-            <option value="4">Class IV</option>
-            <option value="5">Class V</option>
-            <option value="6">Class VI</option>
-            <option value="7">Class VII</option>
-            <option value="8">Class VIII</option>
-            <option value="9">Class IX</option>
-            <option value="10">Class X</option>
-            <option value="11">Class XI</option>
-            <option value="12">Class XII</option>
+            <option value="I">Class I</option>
+            <option value="II">Class II</option>
+            <option value="III">Class III</option>
+            <option value="IV">Class IV</option>
+            <option value="V">Class V</option>
+            <option value="VI">Class VI</option>
+            <option value="VII">Class VII</option>
+            <option value="VIII">Class VIII</option>
+            <option value="IX">Class IX</option>
+            <option value="X">Class X</option>
+            <option value="XI">Class XI</option>
+            <option value="XII">Class XII</option>
           </select>
           {errors.class && <p>Please check the Class</p>}
         </Form.Field>

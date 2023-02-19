@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.admitmebackend.models.admitForm;
@@ -25,24 +26,19 @@ public class AdmitFormController {
 
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200","http://10.0.0.108:4200"})
+    @CrossOrigin(origins = {"http://localhost:3000"})
     @GetMapping("/fetchRecords")
     public List<admitForm> findUser() {
         return admitFormRepository.findAll();
     }
 
-    @CrossOrigin(origins = {"http://localhost:4200","http://10.0.0.108:4200"})
-    @GetMapping("/addRecords")
-    public admitForm addForm(
-            @RequestParam(required = true) String id,
-            @RequestParam(required = true) String name,
-            @RequestParam(required = true) String dob,
-            @RequestParam(required = true) String standard,
-            @RequestParam(required = true) String division,
-            @RequestParam(required = true) String gender) {
-        admitForm k = admitFormRepository
-                .save(new admitForm(id, name, dob, standard, division, gender)));
-        return k;
+    @CrossOrigin(origins = {"http://localhost:3000"})
+    @PostMapping("/addRecords")
+    public String addForm(@RequestBody admitForm admitForm) {
+        System.out.println(admitForm);
+        
+        admitFormRepository.save(admitForm);
+        return "Added User";
     }
 
     
