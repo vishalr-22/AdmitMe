@@ -5,7 +5,7 @@ export default function FetchFormData() {
 
    useEffect(() => {
       const fetchData = async () => {
-        const data = await fetch('http://192.168.0.79:8093/fetchRecords')
+        const data = await fetch('http://192.168.2.102:8093/fetchRecords')
         //  .then((res) => res.json())
         //  .then((data) => {
         //   console.log(data)
@@ -24,9 +24,8 @@ export default function FetchFormData() {
 
 
   return (
-    <div>
-      <p>Data will be fetched in a second automatically.</p>
-      ooo
+    <div className="container" id="fetchformdata">
+      <h3>Data will be fetched in a second automatically.</h3>
       <div className="flex flex-wrap">
       <table>
         <thead>
