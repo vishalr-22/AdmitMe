@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
 import moment from "moment";
+import '../styles/formValidate.css';
 
 export default function FormValidation() {
   const {
@@ -10,17 +11,18 @@ export default function FormValidation() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
-    fetch("http://192.168.2.102:8093/addRecords", requestOptions).then(
+    await fetch("http://192.168.2.102:8093/addRecords", requestOptions).then(
       (response) => {
-        console.log(response);
-        if (response == true) {
+        console.log("kkkkkkkkk")
+        console.log(response.status);
+        if (response.status == 200) {
           alert("Data added successfully");
         } else {
           alert("Data already existing");
@@ -37,7 +39,7 @@ export default function FormValidation() {
           <label>Name</label>
           <div className="input-group mb-3">
             <input
-              class="form-control"
+              className="form-control"
               placeholder="Name"
               type="text"
               {...register("name", {

@@ -1,17 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import '../styles/fetchForm.css';
 export default function FetchFormData() {
   const [students, setStudents] = useState();
 
    useEffect(() => {
       const fetchData = async () => {
         const data = await fetch('http://192.168.2.102:8093/fetchRecords')
-        //  .then((res) => res.json())
-        //  .then((data) => {
-        //   console.log(data)
-        //     setStudents(data)
-        //  })
-        
          .catch((err) => {
             console.log(err.message);
          });
