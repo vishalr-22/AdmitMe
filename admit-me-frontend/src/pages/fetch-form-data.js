@@ -6,7 +6,7 @@ export default function FetchFormData() {
 
    useEffect(() => {
       const fetchData = async () => {
-        const data = await fetch('http://192.168.2.102:8093/fetchRecords')
+        const data = await fetch('https://6416c7ce3a29ed1a1d9ae1dd--silver-bublanina-a72c31.netlify.app/fetchRecords')
          .catch((err) => {
             console.log(err.message);
          });

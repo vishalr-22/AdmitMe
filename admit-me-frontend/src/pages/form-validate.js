@@ -18,7 +18,7 @@ export default function FormValidation() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     };
-    await fetch("http://192.168.2.102:8093/addRecords", requestOptions).then(
+    await fetch("https://6416c7ce3a29ed1a1d9ae1dd--silver-bublanina-a72c31.netlify.app/addRecords", requestOptions).then(
       (response) => {
         console.log("kkkkkkkkk")
         console.log(response.status);
